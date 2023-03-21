@@ -48,7 +48,7 @@ def update():
 def draw():
     pyxel.cls(0)    
     pyxel.circ(64, 64, taille_cercle, 11)
-    if range <= taille_cercle**2+9:
+    if range <= taille_cercle**2+taille_cercle:
         pyxel.circ(64, 64, taille_cercle, 8)
     
     pyxel.rect(player[0], player[1], taille_player, taille_player, 7)
