@@ -2,7 +2,7 @@ import pyxel, definitions, cartes
 
 class App:
     def __init__(self):
-        pyxel.init(256, 128, title="01 Mouvement Ballon")
+        pyxel.init(256, 128, title="02 Placement Singe")
         
         self.liste_ballons = []
         self.liste_singes = []
