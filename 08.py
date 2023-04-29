@@ -370,7 +370,7 @@ class App:
                 pyxel.text(105, 74, "Rejouez ici!", 0)
                 
                 pyxel.text(105, 45, f"Mode: {self.difficulte}", 0)
-                pyxel.text(105, 52, f"Round: {self.round - 1}", 0)
+                pyxel.text(105, 52, f"Round: {self.round}", 0)
                 
                 pyxel.rect(self.curseur.x+1, self.curseur.y, 1, 1, 0)
                 pyxel.rect(self.curseur.x-1, self.curseur.y, 1, 1, 0)
@@ -414,6 +414,14 @@ class App:
                 singe = self.curseur.ameliorer[1]
                 pyxel.circ(singe.x + (singe.longueur // 2), singe.y + (singe.taille // 2), singe.range, 3)
                 pyxel.circb(singe.x + (singe.longueur // 2), singe.y + (singe.taille // 2), singe.range, 0)
+                for singe in self.liste_singes:
+                    pyxel.blt(singe.x, singe.y, 0, singe.u, singe.v, singe.longueur, singe.taille, 9)
+                for ballon in self.liste_ballons:
+                    pyxel.blt(ballon.x, ballon.y, 0, ballon.u, ballon.v, ballon.longueur, ballon.taille, 9)
+                for explosion in self.liste_explosions:
+                    pyxel.blt(explosion.x, explosion.y, 0, 0, 32, 16, 16, 9)
+                for dart in self.liste_darts:
+                    pyxel.blt(dart.x, dart.y, 0, dart.u, dart.v, dart.longueur, dart.taille, 9)
                 pyxel.rect(200, 0, 56, 128, 7)
                 pyxel.rect(199, 0, 1, 128, 0)
                 pyxel.text(201, 94, f"{singe.table_a_noms[0]}", 0)
@@ -427,6 +435,14 @@ class App:
                 pyxel.text(240, 117, f"${singe.table_ameliorations[2]}", 0)
             else:
                 #Aucun singe est choisi pour etre ameliore
+                for singe in self.liste_singes:
+                    pyxel.blt(singe.x, singe.y, 0, singe.u, singe.v, singe.longueur, singe.taille, 9)
+                for ballon in self.liste_ballons:
+                    pyxel.blt(ballon.x, ballon.y, 0, ballon.u, ballon.v, ballon.longueur, ballon.taille, 9)
+                for explosion in self.liste_explosions:
+                    pyxel.blt(explosion.x, explosion.y, 0, 0, 32, 16, 16, 9)
+                for dart in self.liste_darts:
+                    pyxel.blt(dart.x, dart.y, 0, dart.u, dart.v, dart.longueur, dart.taille, 9)
                 pyxel.rect(200, 0, 56, 128, 7)
                 pyxel.rect(199, 0, 1, 128, 0)
                 pyxel.rect(200, 100, 16, 16, 0)
@@ -456,16 +472,7 @@ class App:
             pyxel.rect(200, 40, 16, 16, 5)
             pyxel.blt(202, 41, 0, 50, 49, 12, 15, 9)
             pyxel.text(201, 57, "450", 0)
-            
-            for singe in self.liste_singes:
-                pyxel.blt(singe.x, singe.y, 0, singe.u, singe.v, singe.longueur, singe.taille, 9)
-            for ballon in self.liste_ballons:
-                pyxel.blt(ballon.x, ballon.y, 0, ballon.u, ballon.v, ballon.longueur, ballon.taille, 9)
-            for explosion in self.liste_explosions:
-                pyxel.blt(explosion.x, explosion.y, 0, 0, 32, 16, 16, 9)
-            for dart in self.liste_darts:
-                pyxel.blt(dart.x, dart.y, 0, dart.u, dart.v, dart.longueur, dart.taille, 9)
-            
+                        
             pyxel.text(1, 1, f"Vies: {self.vie}", 0)
             pyxel.text(1, 8, f"Round: {self.round}", 0)
             #On dessine en dernier le curseur
