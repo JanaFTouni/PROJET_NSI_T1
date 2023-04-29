@@ -1,4 +1,4 @@
-from definitions import Ballon 
+from definitions import Ballon
 
 def cartes_mouv(tab: list, type_carte):
     """Fait avancer dans le parcours de la première carte
@@ -97,6 +97,7 @@ def cartes_mouv(tab: list, type_carte):
                 tab.remove(elt)
                 
         elif type_carte == "4":
+            #print(elt.x + (elt.longueur // 2), elt.y + (elt.taille // 2))
             if -17 - (elt.longueur // 2) <= elt.x <= 46 - (elt.longueur // 2) and elt.y == 60 - (elt.taille // 2):
                 elt.x += 1
             elif elt.x == 47 - (elt.longueur // 2) and 15 - (elt.taille // 2) <= elt.y <= 60 + (elt.taille // 2):
@@ -105,8 +106,8 @@ def cartes_mouv(tab: list, type_carte):
                 elt.x += 1
             elif elt.x == 96 - (elt.longueur // 2) and 14 - (elt.taille // 2) <= elt.y <= 93 + (elt.taille // 2):
                 elt.y += 1
-            elif 96 - (elt.longueur // 2) <= elt.x <= 143 - (elt.longueur // 2) and elt.y <= 114 - (elt.taille // 2):
-                elt.x += 1 #ici
+            elif 96 - (elt.longueur // 2) <= elt.x <= 143 - (elt.longueur // 2) and elt.y <= 126 - (elt.taille // 2):
+                elt.x += 1 #ici 
             elif elt.x == 144 - (elt.longueur // 2) and 40 - (elt.taille // 2) <= elt.y <= 110 + (elt.taille // 2):
                 elt.y -= 1
             elif 40 - (elt.longueur // 2) <= elt.x <= 200 + (elt.longueur // 2) and elt.y == 39 - (elt.taille // 2):
@@ -118,4 +119,5 @@ def cartes_mouv(tab: list, type_carte):
                         tab.append(Ballon(elt.x + (elt.longueur // 2), elt.y + (elt.taille // 2), nouveau_ballon))
                 tab.remove(elt)
     return vie_perdue
+
 
