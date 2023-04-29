@@ -285,10 +285,10 @@ class App:
                 pyxel.text(110, 5, "MONKEY BALLS", 0)
                 pyxel.text(95, 13, "Choisissez une carte", 0)
                 
-                pyxel.blt(16, 70, 0, 96, 32, 32, 16, 9)
-                pyxel.blt(80, 70, 0, 96, 48, 32, 16, 9)
-                pyxel.blt(144, 70, 0, 96, 64, 32, 16, 9)
-                pyxel.blt(208, 70, 0, 96, 80, 32, 16, 9)
+                pyxel.blt(16, 70, 0, 48, 104, 32, 16, 9)
+                pyxel.blt(80, 70, 0, 48, 120, 32, 16, 9)
+                pyxel.blt(144, 70, 0, 48, 136, 32, 16, 9)
+                pyxel.blt(208, 70, 0, 80, 104, 32, 16, 9)
                 
                 pyxel.rect(self.curseur.x+1, self.curseur.y, 1, 1, 0)
                 pyxel.rect(self.curseur.x-1, self.curseur.y, 1, 1, 0)
