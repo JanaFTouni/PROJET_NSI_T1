@@ -29,7 +29,7 @@ class App:
             if self.difficulte == "En attente":
                 if 24 <= self.curseur.x <= 39 and 70 <= self.curseur.y <= 85 and pyxel.btnp(pyxel.MOUSE_BUTTON_LEFT):
                     self.difficulte = "Facile"
-                    self.vie = 200
+                    self.vie = 200 
                 elif 88 <= self.curseur.x <= 103 and 70 <= self.curseur.y <= 85 and pyxel.btnp(pyxel.MOUSE_BUTTON_LEFT):
                     self.difficulte = "Moyen"
                     self.vie = 150
