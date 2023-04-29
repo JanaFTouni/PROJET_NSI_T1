@@ -29,7 +29,7 @@ class App:
             if self.difficulte == "En attente":
                 if 24 <= self.curseur.x <= 39 and 70 <= self.curseur.y <= 85 and pyxel.btnp(pyxel.MOUSE_BUTTON_LEFT):
                     self.difficulte = "Facile"
-                    self.vie = 200 
+                    self.vie = 200
                 elif 88 <= self.curseur.x <= 103 and 70 <= self.curseur.y <= 85 and pyxel.btnp(pyxel.MOUSE_BUTTON_LEFT):
                     self.difficulte = "Moyen"
                     self.vie = 150
@@ -96,12 +96,28 @@ class App:
                     self.jeu = False
             
         if self.jeu:
+            
             if self.liste_deploiement != []:
                 round_tourner.deploiement(self.liste_ballons, self.carte, self.liste_deploiement)
             elif self.liste_ballons == []:
-                self.liste_deploiement = niveaux.round_desire(self.round)
                 self.round += 1
-            
+                #Victoire
+                if self.round >= 3 and self.difficulte == "Facile":
+                    self.jeu = False
+                    self.victoire = True
+                    
+                elif self.round >= 61 and self.difficulte == "Moyen":
+                    self.jeu = False
+                    self.victoire = True
+                    
+                elif self.round >= 81 and self.difficulte == "Difficile":
+                    self.jeu = False
+                    self.victoire = True
+                    
+                elif self.round >= 101 and self.difficulte == "CHIMPS":
+                    self.jeu = False
+                    self.victoire = True
+                self.liste_deploiement = niveaux.round_desire(self.round)
                         
             #Si le joueur clique sur la case d'achat d'un singe
             if 200 <= self.curseur.x <= 215 and 16 <= self.curseur.y <= 31 and pyxel.btnp(pyxel.MOUSE_BUTTON_LEFT)\
@@ -179,24 +195,7 @@ class App:
             if self.vie <= 0:
                 self.jeu = False
                 self.game_over = True
-            
-            #Victoire
-            if self.round >= 2 and self.difficulte == "Facile":
-                self.jeu = False
-                self.victoire = True
-                
-            elif self.round >= 61 and self.difficulte == "Moyen":
-                self.jeu = False
-                self.victoire = True
-                
-            elif self.round >= 81 and self.difficulte == "Difficile":
-                self.jeu = False
-                self.victoire = True
-                
-            elif self.round >= 101 and self.difficulte == "CHIMPS":
-                self.jeu = False
-                self.victoire = True
-                
+                            
             #On attaque les ballons
             for singe in self.liste_singes:
                 tirs = 0
@@ -371,7 +370,7 @@ class App:
                 pyxel.text(105, 74, "Rejouez ici!", 0)
                 
                 pyxel.text(105, 45, f"Mode: {self.difficulte}", 0)
-                pyxel.text(105, 52, f"Round: {self.round}", 0)
+                pyxel.text(105, 52, f"Round: {self.round - 1}", 0)
                 
                 pyxel.rect(self.curseur.x+1, self.curseur.y, 1, 1, 0)
                 pyxel.rect(self.curseur.x-1, self.curseur.y, 1, 1, 0)
@@ -392,7 +391,7 @@ class App:
                 pyxel.text(105, 74, "Rejouez ici!", 0)
                 
                 pyxel.text(105, 45, f"Mode: {self.difficulte}", 0)
-                pyxel.text(105, 52, f"Round: {self.round}", 0)
+                pyxel.text(105, 52, f"Round: {self.round - 1}", 0)
                 
                 pyxel.rect(self.curseur.x+1, self.curseur.y, 1, 1, 0)
                 pyxel.rect(self.curseur.x-1, self.curseur.y, 1, 1, 0)
@@ -468,7 +467,7 @@ class App:
                 pyxel.blt(dart.x, dart.y, 0, dart.u, dart.v, dart.longueur, dart.taille, 9)
             
             pyxel.text(1, 1, f"Vies: {self.vie}", 0)
-            pyxel.text(1, 8, f"Round: {self.round}", 0)
+            pyxel.text(1, 8, f"Round: {self.round - 1}", 0)
             #On dessine en dernier le curseur
             if self.curseur.etat == 'vide':
                 pyxel.rect(self.curseur.x+1, self.curseur.y, 1, 1, 0)
@@ -484,3 +483,4 @@ class App:
                 pyxel.rect(self.curseur.x, self.curseur.y, self.curseur.longueur, self.curseur.taille, 8)
         
 App()
+
