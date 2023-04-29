@@ -1,4 +1,4 @@
-from definitions import Ballon
+from definitions import Ballon 
 
 def cartes_mouv(tab: list, type_carte):
     """Fait avancer dans le parcours de la première carte
