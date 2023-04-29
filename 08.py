@@ -102,7 +102,7 @@ class App:
             elif self.liste_ballons == []:
                 self.round += 1
                 #Victoire
-                if self.round >= 3 and self.difficulte == "Facile":
+                if self.round >= 41 and self.difficulte == "Facile":
                     self.jeu = False
                     self.victoire = True
                     
@@ -467,7 +467,7 @@ class App:
                 pyxel.blt(dart.x, dart.y, 0, dart.u, dart.v, dart.longueur, dart.taille, 9)
             
             pyxel.text(1, 1, f"Vies: {self.vie}", 0)
-            pyxel.text(1, 8, f"Round: {self.round - 1}", 0)
+            pyxel.text(1, 8, f"Round: {self.round}", 0)
             #On dessine en dernier le curseur
             if self.curseur.etat == 'vide':
                 pyxel.rect(self.curseur.x+1, self.curseur.y, 1, 1, 0)
