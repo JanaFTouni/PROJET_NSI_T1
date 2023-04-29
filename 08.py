@@ -441,6 +441,9 @@ class App:
                     pyxel.blt(ballon.x, ballon.y, 0, ballon.u, ballon.v, ballon.longueur, ballon.taille, 9)
                 for explosion in self.liste_explosions:
                     pyxel.blt(explosion.x, explosion.y, 0, 0, 32, 16, 16, 9)
+                    #on ajoute du son
+                    pyxel.playm(0, loop = False)
+                
                 for dart in self.liste_darts:
                     pyxel.blt(dart.x, dart.y, 0, dart.u, dart.v, dart.longueur, dart.taille, 9)
                 pyxel.rect(200, 0, 56, 128, 7)
