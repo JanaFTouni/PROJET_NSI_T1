@@ -1,7 +1,7 @@
 import pyxel
 
 pyxel.init(128, 128, title="Test collision cercle")
-
+ 
 player = (64,64)
 taille_player = 5
 taille_cercle = 15
